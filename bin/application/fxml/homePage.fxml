@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-insets: 50; -fx-background-color: white;" translateY="-40.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="50.0" layoutY="80.0" prefHeight="690.0" prefWidth="924.0">
+               <children>
+                  <AnchorPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="924.0">
+                     <children>
+                        <Text fill="#03000fad" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!" textAlignment="CENTER" translateY="15.0" wrappingWidth="924.0">
+                           <font>
+                              <Font name="Comic Sans MS" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Text fill="#000000bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcoming events" wrappingWidth="924.0">
+                     <font>
+                        <Font name="Arial" size="27.0" />
+                     </font>
+                  </Text>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="924.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="924.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: beige; -fx-background-radius: 25;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Downloads/ball%20pit.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Label id="title1" fx:id="title1" layoutX="252.0" layoutY="25.0" />
+                                 	<Label id="location1" fx:id="location1" layoutX="350.0" layoutY="70.0" />
+        							<Label id="date1" fx:id="date1" layoutX="350.0" layoutY="110.0" />
+        							<Label id="time1" fx:id="time1" layoutX="350.0" layoutY="150.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="475.0" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: beige; -fx-background-radius: 25;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Downloads/dog%201.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#bc0f0f" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meetup in the park">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="924.0" translateY="50.0">
+                     <children>
+                        <Text fill="#000000bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Accepted events" wrappingWidth="924.0">
+                           <font>
+                              <Font name="Arial" size="27.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="924.0" translateY="50.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="924.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: lightgray; -fx-background-radius: 25;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Downloads/dog%202.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#bc0f0f" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lazy dog day!!!">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="475.0" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: lightgray; -fx-background-radius: 25;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Downloads/dog%204.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="250.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#bc0f0f" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meetup in the park">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: powderblue;" translateX="-50.0" translateY="115.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: powderblue;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#0669bf" layoutX="150.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws" wrappingWidth="300.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="36.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/paw.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="900.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/dog.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="900.0" layoutY="50.0" text="Name" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Pane layoutX="350.0" layoutY="25.0" prefHeight="30.0" prefWidth="500.0" style="-fx-background-radius: 10;">
+               <children>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="500.0" promptText="search" style="-fx-background-radius: 10;" text="search" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

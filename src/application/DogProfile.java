@@ -8,6 +8,14 @@ public class DogProfile implements Profile {
     private int age;
     private String breed;
 
+    public DogProfile(String username, String firstName, String lastName, String imageURL, int age, String breed) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.imageURL = imageURL;
+        this.age = age;
+        this.breed = breed;       
+    }    
     @Override
     public String getUsername() {
         return username;

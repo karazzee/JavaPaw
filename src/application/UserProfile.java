@@ -7,6 +7,14 @@ public class UserProfile implements Profile {
     private String imageURL;
     private String email;
 
+    public UserProfile(String username, String firstName, String lastName, String imageURL, String email) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.imageURL = imageURL;
+        this.email = email;
+    }
+
     @Override
     public String getUsername() {
         return username;
