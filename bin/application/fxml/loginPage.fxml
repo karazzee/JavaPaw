@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController" >
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
    <center>
       <AnchorPane prefHeight="738.0" prefWidth="1024.0" style="-fx-background-insets: 50; -fx-background-color: white;" translateY="-30.0" BorderPane.alignment="CENTER">
          <children>
@@ -38,12 +38,12 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Text>
-            <Hyperlink fx:id="signupLink" alignment="CENTER" layoutX="412.0" layoutY="290.0" prefHeight="24.0" prefWidth="200.0" text="Signup for an account.">
+            <Hyperlink fx:id="signUpLink" alignment="CENTER" layoutX="412.0" layoutY="290.0" prefHeight="24.0" prefWidth="200.0" text="Signup for an account.">
                <font>
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Button layoutX="462.0" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" fx:id="loginButton" text="Login" textFill="#1f389e" />
+            <Button layoutX="462.0" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" fx:id="loginButton" text="Login" textFill="#1f389e" onAction="#handleLogin" />
             <Text fill="#0669bf" layoutX="540.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws">
                <font>
                   <Font name="Comic Sans MS Bold" size="42.0" />
