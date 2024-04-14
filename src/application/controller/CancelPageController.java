@@ -9,21 +9,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class EventPageController {
+public class CancelPageController {
 	@FXML
 	private Button homeButton;
 	
 	@FXML
     private void initialize() {	
 	}
-		
-		
-	public void handleRsvp(ActionEvent event) throws Exception {
+	
+	public void handleHomeButtonClicked(ActionEvent event) throws Exception {
     	// Load the event page
-	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/rsvpPage.fxml"));
-	    loader.setController(new RsvpPageController());
+	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/homePage.fxml"));
+	    loader.setController(new HomePageController());
 	    Parent root;
 		try {
 			root = loader.load();
@@ -33,7 +34,7 @@ public class EventPageController {
  		    // Set the stage with the home scene
  		    Stage stage = new Stage();
  		    stage.setScene(scene);
- 		    stage.setTitle("rsvp Page");
+ 		    stage.setTitle("Home Page");
  		    stage.show();
  		    
  	        // Close the current window
@@ -43,7 +44,5 @@ public class EventPageController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    
-    }
-
+	}
 }

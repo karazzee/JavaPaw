@@ -14,33 +14,19 @@
    <top>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: FFF5ED;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../eclipse-workspace/Downloads/paw.png" />
-               </image>
-            </ImageView>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: FFF5ED;">
-               <children>
-                  <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../eclipse-workspace/Downloads/paw.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <Text layoutX="127.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws" wrappingWidth="300.0">
+            <Text layoutX="117.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws" wrappingWidth="300.0">
                <font>
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Text>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="60.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../pngtree-very-cute-puppy-icon-vector-png-image_12273883.png" />
+                  <Image url="file:img/dog_logo.png" />
                </image>
             </ImageView>
             <ButtonBar layoutX="780.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="Home" />
+                  <Button id="homeButton" fx:id="homeButton"  mnemonicParsing="false" text="Home" />
                   <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
                </buttons>
             </ButtonBar>
@@ -56,14 +42,14 @@
                      <children>
                         <ImageView fitHeight="579.0" fitWidth="1357.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../360_F_610132710_9M0fM6ggD6Z38yfNdPWQ9w3j6uCOZ54y.jpg" />
+                              <Image url="file:img/login_animals.jpg" />
                            </image>
                         </ImageView>
                         <AnchorPane layoutX="511.0" layoutY="56.0" prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: FFF5ED; -fx-background-radius: 25;">
                            <children>
                               <ImageView fitHeight="149.0" fitWidth="210.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../istockphoto-1345671675-2048x2048.jpg" />
+                                    <Image url="file:img/four_dogs_tangle.jpg" />
                                  </image>
                               </ImageView>
                               <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0">
@@ -91,7 +77,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="270.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Cancel " />
+                              <Button fx:id="cancelButton" layoutX="270.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" onAction="#handleCancelButtonClicked" text="Cancel" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="34.0" layoutY="56.0" prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: white; -fx-background-radius: 25;">

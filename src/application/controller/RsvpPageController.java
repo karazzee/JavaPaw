@@ -11,19 +11,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class EventPageController {
+public class RsvpPageController {
+		
 	@FXML
 	private Button homeButton;
 	
-	@FXML
-    private void initialize() {	
-	}
-		
-		
-	public void handleRsvp(ActionEvent event) throws Exception {
+    @FXML
+    private void initialize() {
+
+    }
+
+    public void handleCancelButtonClicked(ActionEvent event) throws Exception {
+
     	// Load the event page
-	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/rsvpPage.fxml"));
-	    loader.setController(new RsvpPageController());
+	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/cancelPage.fxml"));
+	    loader.setController(new CancelPageController());
 	    Parent root;
 		try {
 			root = loader.load();
@@ -33,7 +35,7 @@ public class EventPageController {
  		    // Set the stage with the home scene
  		    Stage stage = new Stage();
  		    stage.setScene(scene);
- 		    stage.setTitle("rsvp Page");
+ 		    stage.setTitle("Cancel Page");
  		    stage.show();
  		    
  	        // Close the current window
@@ -45,5 +47,5 @@ public class EventPageController {
 		}
     
     }
-
 }
+

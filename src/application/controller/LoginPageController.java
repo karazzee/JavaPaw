@@ -34,10 +34,19 @@ public class LoginPageController {
         signUpLink.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/signUpPage.fxml"));
-                Parent signUpRoot = loader.load();
-                Scene signUpScene = new Scene(signUpRoot);
-                Stage stage = (Stage) signUpLink.getScene().getWindow();
-                stage.setScene(signUpScene);
+                loader.setController(new SignUpPageController());
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+     		    // Set the stage with the home scene
+     		    Stage stage = new Stage();
+     		    stage.setScene(scene);
+     		    stage.setTitle("SignUp Page");
+     		    stage.show();
+                
+                // Close the current window
+                Stage currentStage = (Stage) signUpLink.getScene().getWindow();
+                currentStage.close();
+                
             } catch (IOException e) {
                 e.printStackTrace();
                 // Handle any exceptions
@@ -55,9 +64,9 @@ public class LoginPageController {
             // Call the showHomePage method from the Main class
             showHomePage();
             
-            // Close the login window
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.close();
+            // Close the current window
+            Stage currentStage = (Stage) usernameField.getScene().getWindow();
+            currentStage.close();
         } else {
             // Show an alert dialog for invalid credentials
             Alert alert = new Alert(AlertType.ERROR);
@@ -67,17 +76,18 @@ public class LoginPageController {
             alert.showAndWait();
         }
     }
- // Method to switch to home page
+    // Method to switch to home page
  	  public static void showHomePage() throws IOException {
  		    // Load the home page
- 		    FXMLLoader homeLoader = new FXMLLoader(Main.class.getResource("fxml/homePage.fxml"));
- 		    homeLoader.setController(new HomePageController());
- 		    Parent homeRoot = homeLoader.load();
- 		    Scene homeScene = new Scene(homeRoot);
+ 		    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/homePage.fxml"));
+ 		    loader.setController(new HomePageController());
+ 		    Parent root = loader.load();
+ 		    Scene scene = new Scene(root);
+ 		    scene.getStylesheets().add("application.css");
 
  		    // Set the stage with the home scene
  		    Stage stage = new Stage();
- 		    stage.setScene(homeScene);
+ 		    stage.setScene(scene);
  		    stage.setTitle("Home Page");
  		    stage.show();
  		}

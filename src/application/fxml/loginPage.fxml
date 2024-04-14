@@ -17,11 +17,6 @@
    <top>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: FFF5ED;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:img/dog_logo.png" />
-               </image>
-            </ImageView>
             <Pane layoutX="345.0" layoutY="28.0" prefHeight="30.0" prefWidth="500.0" style="-fx-background-radius: 10;" />
             <AnchorPane layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: FFF5ED;">
                <children>
@@ -35,13 +30,6 @@
                         <Image url="file:img/dog_logo.png" />
                      </image>
                   </ImageView>
-                  <ButtonBar layoutX="704.0" layoutY="20.0" prefHeight="40.0" prefWidth="200.0">
-                     <buttons>
-                        <Button mnemonicParsing="false" text="Home" />
-                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
-                        <Button layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" />
-                     </buttons>
-                  </ButtonBar>
                </children>
             </AnchorPane>
          </children>

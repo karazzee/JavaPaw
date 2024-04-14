@@ -54,14 +54,15 @@ public class HomePageController{
     private void initialize() {
        
     	 // Create and populate event1
-       Event event1 = Event.getEvent("Ballpit Fun in the Park", "Central Park", LocalDate.of(2024, 5, 15), LocalTime.of(10, 0));
-       title1.setText(event1.getTitle());
-       location1.setText(event1.getLocation());
-       date1.setText(event1.getDate().toString());
-       time1.setText(event1.getTime().toString());
+//       Event event1 = Event.getEvent("Ballpit Fun in the Park", "Central Park", LocalDate.of(2024, 5, 15), LocalTime.of(10, 0));
+//       title1.setText(event1.getTitle());
+//       location1.setText(event1.getLocation());
+//       date1.setText(event1.getDate().toString());
+//       time1.setText(event1.getTime().toString());
        eventPane1.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
     	    @Override
     	    public void handle(MouseEvent mouseEvent) {
+                
     	    	// Load the event page
      		    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/eventPage.fxml"));
      		    loader.setController(new EventPageController());
@@ -70,12 +71,17 @@ public class HomePageController{
 					root = loader.load();
 				
 	     		    Scene scene = new Scene(root);
+	     		    scene.getStylesheets().add("application.css");
 	
 	     		    // Set the stage with the home scene
 	     		    Stage stage = new Stage();
 	     		    stage.setScene(scene);
 	     		    stage.setTitle("Event Page");
 	     		    stage.show();
+	     		    
+	                // Close the current window
+	                Stage currentStage = (Stage) eventPane1.getScene().getWindow();
+	                currentStage.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
