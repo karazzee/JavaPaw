@@ -83,7 +83,6 @@ public class LoginPageController {
  		    loader.setController(new HomePageController());
  		    Parent root = loader.load();
  		    Scene scene = new Scene(root);
- 		    scene.getStylesheets().add("application.css");
 
  		    // Set the stage with the home scene
  		    Stage stage = new Stage();

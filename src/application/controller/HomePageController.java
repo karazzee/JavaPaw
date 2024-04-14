@@ -71,7 +71,6 @@ public class HomePageController{
 					root = loader.load();
 				
 	     		    Scene scene = new Scene(root);
-	     		    scene.getStylesheets().add("application.css");
 	
 	     		    // Set the stage with the home scene
 	     		    Stage stage = new Stage();
