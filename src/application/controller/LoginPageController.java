@@ -1,5 +1,6 @@
 package application.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
@@ -54,8 +55,7 @@ public class LoginPageController {
         });
     }
 
-    @FXML
-    private void handleLogin() throws Exception {
+    public void handleLogin(ActionEvent event) throws Exception {
         String username = usernameField.getText();
         String password = passwordField.getText();
         
