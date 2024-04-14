@@ -56,7 +56,7 @@
                      <children>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="924.0">
                            <children>
-                              <AnchorPane prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: FFF5ED; -fx-background-radius: 25;">
+                              <AnchorPane id="eventPane1" fx:id="eventPane1" prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: FFF5ED; -fx-background-radius: 25;">
                                  <children>
                                     <ImageView fitHeight="149.0" fitWidth="210.0" layoutX="23.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -69,7 +69,7 @@
         							<Label id="time1" fx:id="time1" layoutX="350.0" layoutY="150.0" />
                                     <Text fill="#0f8bba" layoutX="246.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paws in the Park">
                                        <font>
-                                          <Font name="Comic Sans MS" size="18.0" />
+                                          <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
                                     <Text layoutX="250.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:  Oakland,CA">
@@ -104,7 +104,7 @@
                                     </Text>
                                     <Text fill="#0f8bba" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dog Lovers' Hike">
                                        <font>
-                                          <Font name="Comic Sans MS" size="18.0" />
+                                          <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
                                     <Text layoutX="250.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:  San Francisco, CA">
@@ -157,7 +157,7 @@
                                     </Text>
                                     <Text fill="#0f8bba" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yappy Hour Social">
                                        <font>
-                                          <Font name="Comic Sans MS" size="18.0" />
+                                          <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
                                     <Button layoutX="264.0" layoutY="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Join" />
@@ -187,7 +187,7 @@
                                     </Text>
                                     <Text fill="#0f8bba" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Canine Carnival ">
                                        <font>
-                                          <Font name="Comic Sans MS" size="18.0" />
+                                          <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
                                     <Button layoutX="271.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Join" />

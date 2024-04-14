@@ -72,7 +72,7 @@
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../eclipse-workspace/Downloads/paw.png" />
+                        <Image url="file:img/dog_logo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -84,7 +84,7 @@
             </Text>
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="60.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../pngtree-very-cute-puppy-icon-vector-png-image_12273883.png" />
+                  <Image url="file:img/dog_logo.png" />
                </image>
             </ImageView>
             <ButtonBar layoutX="780.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
