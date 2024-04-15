@@ -26,8 +26,8 @@
             </ImageView>
             <ButtonBar layoutX="780.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button id="homeButton" fx:id="homeButton"  mnemonicParsing="false" text="Home" />
-                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
+                  <Button id="homeButton" fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomePage" text="Home" />
+                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />              
                </buttons>
             </ButtonBar>
          </children>
@@ -77,7 +77,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Text>
-                              <Button fx:id="cancelButton" layoutX="270.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" onAction="#handleCancelButtonClicked" text="Cancel" />
+                              <Button fx:id="cancelButton" layoutX="270.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleCancelButtonClicked" prefHeight="25.0" prefWidth="136.0" text="Cancel" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="34.0" layoutY="56.0" prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: white; -fx-background-radius: 25;">
@@ -94,11 +94,51 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <Text fill="#d28c57" layoutX="48.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We're thrilled to have you and your furry friend join us for a day of fun. Get ready for games, treats, and tail-wagging happiness!" textAlignment="CENTER" wrappingWidth="924.1366577148438">
+                        <Text fill="#FFFFFF" layoutX="48.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0"  textAlignment="CENTER" wrappingWidth="924.1366577148438">
                            <font>
                               <Font name="Segoe UI Bold" size="22.0" />
                            </font>
                         </Text>
+                        <Button fx:id="launchEventButton" onAction="#handleLaunchEvent" layoutX="785.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" style="-fx-border-color: green;" text="Launch Event" textFill="#000000ee">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <AnchorPane layoutX="511.0" layoutY="287.0" prefHeight="205.0" prefWidth="449.0" style="-fx-background-color: CCDDFF; -fx-background-radius: 25;">
+                           <children>
+                              <ImageView fitHeight="149.0" fitWidth="210.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="file:img/huskey.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#0f8bba" layoutX="291.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Husky time" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="250.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:  San jose, CA">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="250.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:        Saturday, June 15">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="250.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:        4:00PM -8:00PM">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="cancelLaunchButton" layoutX="270.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleCancelLaunch" prefHeight="25.0" prefWidth="136.0" text="Cancel Launch" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
               </items>
