@@ -1,16 +1,9 @@
 package application;
 
 public interface Profile {
-    String getUsername();
-    void setUsername(String username);
+    int getProfileId();
+    void setProfileId(int profileId);
 
-    String getFirstName();
-    void setFirstName(String firstName);
-    
-    String getLastName();
-    void setLastName(String lastName);
-
-    String getImageURL();
-    void setImageURL(String imageURL);
-
+    String getName();
+    void setName(String name);
 }
