@@ -18,6 +18,9 @@ public class CancelPageController {
 	private Button homeButton;
 	
 	@FXML
+	private Button myEventButton;
+	
+	@FXML
     private void initialize() {	
 	}
 	
@@ -45,4 +48,31 @@ public class CancelPageController {
 			e.printStackTrace();
 		}
 	}
+	public void handleRsvp(ActionEvent event) throws Exception {
+    	// Load the event page
+        System.out.println("cancel > rsvpPage ");
+
+	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/rsvpPage.fxml"));
+	    loader.setController(new RsvpPageController());
+	    Parent root;
+		try {
+			root = loader.load();
+		
+ 		    Scene scene = new Scene(root);
+
+ 		    // Set the stage with the home scene
+ 		    Stage stage = new Stage();
+ 		    stage.setScene(scene);
+ 		    stage.setTitle("rsvp Page");
+ 		    stage.show();
+ 		    
+ 	        // Close the current window
+ 	        Stage currentStage = (Stage) homeButton.getScene().getWindow();
+ 	        currentStage.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    
+    }
 }
