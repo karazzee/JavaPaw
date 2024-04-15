@@ -23,9 +23,9 @@ public class Event {
 	public String eventDetail;
 	public String eventLocation;
 	public String eventPicUrl; 
-	public Date date;	
-	public Time timeStart;
-	public Time timeEnd;
+	public LocalDate date;	
+	public LocalTime timeStart;
+	public LocalTime timeEnd;
 	public String place;
 	public int sponsorId;
 	public String sponsorName;
@@ -45,11 +45,12 @@ public class Event {
  
 
     // Constructor
-    public Event(String title, String location, LocalDate date, LocalTime time) {
+    public Event(String title, String location, LocalDate date, LocalTime time, LocalTime timeEnd) {
     	this.eventTitle = title;
     	this.eventLocation = location;
         this.date = date;
-        this.time = time;
+        this.timeStart = time;
+        this.timeEnd = timeEnd;
     }
     // Getter method for event title
     public String getTitle() {
@@ -63,20 +64,20 @@ public class Event {
     }
 
     // Getter method for date
-    public Date getDate() {   	
+    public LocalDate getDate() {   	
         return this.date;
     }
     
     // Getter method for time
     public LocalTime getTime() {
-    	time = LocalTime.now();
-        return time;
+    	timeStart = LocalTime.now();
+        return timeStart;
     }
 
     
     
-    public static Event getEvent(String title, String location, LocalDate date, LocalTime time) {
-        return new Event(title, location, date, time);
+    public static Event getEvent(String title, String location, LocalDate date, LocalTime timeStart,LocalTime timeEnd) {
+        return new Event(title, location, date, timeStart, timeEnd);
     }
    
     private static int[] convertToIntArray(String input) {
@@ -277,5 +278,5 @@ public class Event {
         } catch (SQLException e) {
             e.printStackTrace();
         } 
-
+	}
 }
