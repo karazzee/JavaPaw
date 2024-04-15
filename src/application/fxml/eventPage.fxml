@@ -33,9 +33,9 @@
             </AnchorPane>
             <ButtonBar layoutX="714.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button id="homeButton" fx:id="homeButton" mnemonicParsing="false" text="Home" />
-                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
-                  <Button layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" />
+                  <Button fx:id="homeButton" layoutX="65.0" layoutY="18.0" mnemonicParsing="false" text="Home" onAction="#handleHomePage" />
+                  <Button fx:id="MyEventButton" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" onAction="#handleRsvp" />
+                  <Button fx:id="myProfileButton" layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" onAction="#handleProfile" />
                </buttons>
             </ButtonBar>
          </children>
@@ -59,8 +59,7 @@
                   <Image url="file:img/four_dogs_tangle.jpg" />
                </image>
             </ImageView>
-            <TextArea layoutX="540.0" layoutY="-113.0" prefHeight="319.0" prefWidth="481.0" text="&#10;&#10;Date: Sunday, July 16, 2024&#10;&#10;Time: 8:00 AM - 12:00 PM&#10;&#10;Location: Redwood Regional Park, Oakland, CA&#10;&#10;Description: Join other dog lovers for a guided hike through beautiful Redwood forests. Don’t forget your leash and hiking boots!" wrapText="true">
-               <font>
+			<TextArea layoutX="540.0" layoutY="-113.0" prefHeight="319.0" prefWidth="481.0" text="&#10;&#10;Date: Sunday, July 16, 2024&#10;&#10;Time: 8:00 AM - 12:00 PM&#10;&#10;Location: Redwood Regional Park, Oakland, CA&#10;&#10;participated Num: 15 people&#10;&#10;Description: Join other dog lovers for a guided hike through beautiful Redwood forests. Don’t forget your leash and hiking boots!" wrapText="true">               <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </TextArea>
