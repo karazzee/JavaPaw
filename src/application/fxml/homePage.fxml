@@ -214,9 +214,9 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
             <ButtonBar layoutX="704.0" layoutY="20.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="Home" />
-                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
-                  <Button layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" />
+                	<Button fx:id="homeButton" layoutX="65.0" layoutY="18.0" mnemonicParsing="false" text="Home" />
+                	<Button fx:id="MyEventButton" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" onAction="#handleRsvpPage" />
+                  	<Button fx:id="myProfileButton" layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" onAction="#handleProfile" />
               </buttons>
             </ButtonBar>
          </children>
