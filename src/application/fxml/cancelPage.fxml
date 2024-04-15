@@ -27,7 +27,7 @@
             <ButtonBar layoutX="780.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
                <buttons>
                   <Button id="homeButton" fx:id="homeButton" mnemonicParsing="false" text="Home" onAction="#handleHomeButtonClicked"/>
-                  <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" />
+                  <Button fx:id="MyEventButton" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" onAction="#handleRsvp" />
                </buttons>
             </ButtonBar>
          </children>
