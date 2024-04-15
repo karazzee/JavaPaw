@@ -45,7 +45,7 @@ public class SignUpPageController {
     }
 
     @FXML
-    private void handleSignUp(ActionEvent event) throws Exception {
+    public void handleSignUp(ActionEvent event) throws Exception {
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
@@ -69,6 +69,24 @@ public class SignUpPageController {
 	    Stage stage = new Stage();
 	    stage.setScene(scene);
 	    stage.setTitle("Login Page");
+	    stage.show();
+	    
+        // Close the current window
+        Stage currentStage = (Stage) signUpButton.getScene().getWindow();
+        currentStage.close();
+    }
+    
+    public void handleProfile(ActionEvent event) throws Exception {        
+	    // Load the home page
+	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/homePage.fxml"));
+	    loader.setController(new HomePageController());
+	    Parent root = loader.load();
+	    Scene scene = new Scene(root);
+
+	    // Set the stage with the home scene
+	    Stage stage = new Stage();
+	    stage.setScene(scene);
+	    stage.setTitle("home Page");
 	    stage.show();
 	    
         // Close the current window
