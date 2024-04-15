@@ -1,57 +1,45 @@
 package application;
 
 public class DogProfile implements Profile {
-    private String username;
-    private String firstName;
-    private String lastName;
+    private int profileId;
+    private String name;
     private String imageURL;
     private int age;
     private String breed;
+    private int ownerId;
+    private String ownerName;
 
-    public DogProfile(String username, String firstName, String lastName, String imageURL, int age, String breed) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public DogProfile(int profileId,String ownerName, String imageURL, int age, String breed, int ownerId, String ownerName1) {
+        this.profileId = profileId;
+        this.name = name;
         this.imageURL = imageURL;
         this.age = age;
-        this.breed = breed;       
+        this.breed = breed;  
+        this.ownerId = ownerId;
+        this.ownerName = ownerName1;
     }    
     @Override
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
+    }
+    @Override
+    public void setName(String name) {
+    	this.name = name; 
+    }
+    @Override
+    public int getProfileId() {
+    	return profileId;
+    }
+    @Override
+    public void setProfileId(int profileId) {
+        this.profileId = profileId;
     }
 
-    @Override
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String getFirstName() {
-        return firstName;
-    }
-
-    @Override
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Override
-    public String getLastName() {
-        return lastName;
-    }
-
-    @Override
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Override
     public String getImageURL() {
         return imageURL;
     }
 
-    @Override
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
