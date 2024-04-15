@@ -1,10 +1,14 @@
 package application.controller;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -33,6 +37,12 @@ public class HomePageController{
 	    
 	    @FXML
 	    private AnchorPane eventPane1; 
+	    
+	    @FXML
+		private Button homeButton;
+	    
+	    @FXML
+	    private Button MyEventButton;
 	    
 	    /*
 	    @FXML
@@ -97,4 +107,46 @@ public class HomePageController{
        */
    }
     
+
+public void handleRsvpPage(ActionEvent event) throws Exception {
+
+
+    // Load the myEvent page
+    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/rsvpPage.fxml"));
+    loader.setController(new RsvpPageController());
+    Parent root = loader.load();
+    Scene scene = new Scene(root);
+
+    // Set the stage with the home scene
+    Stage stage = new Stage();
+    stage.setScene(scene);
+    stage.setTitle("rsvp Page");
+    stage.show();
+    
+    // Close the current window
+    Stage currentStage = (Stage) homeButton.getScene().getWindow();
+    currentStage.close();
+	}
+
+public void handleProfile(ActionEvent event) throws Exception {
+
+
+    // Load the myEvent page
+    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/profile.fxml"));
+    loader.setController(new SignUpPageController());
+    Parent root = loader.load();
+    Scene scene = new Scene(root);
+
+    // Set the stage with the home scene
+    Stage stage = new Stage();
+    stage.setScene(scene);
+    stage.setTitle("profile Page");
+    stage.show();
+    
+    // Close the current window
+    Stage currentStage = (Stage) homeButton.getScene().getWindow();
+    currentStage.close();
+	}
+
 }
+
