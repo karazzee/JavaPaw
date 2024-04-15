@@ -19,7 +19,7 @@
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Text>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:img/dog_logo.png" />
                </image>
@@ -108,7 +108,7 @@
                            <children>
                               <ImageView fitHeight="149.0" fitWidth="210.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:img/huskey.jpg" />
+                                    <Image url="file:img/dog_on_truck.jpg" />
                                  </image>
                               </ImageView>
                               <Text layoutX="250.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0">
