@@ -76,7 +76,14 @@ public class SignUpPageController {
         currentStage.close();
     }
     
-    public void handleProfile(ActionEvent event) throws Exception {        
+    public void handleProfile(ActionEvent event) throws Exception {     
+    	
+        // update/create event successful alert
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Save Profile Successful");
+        alert.setHeaderText("Thank you for successfully Save Profile! ");
+        alert.showAndWait();
+        
 	    // Load the home page
 	    FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/homePage.fxml"));
 	    loader.setController(new HomePageController());
