@@ -14,12 +14,12 @@
    <top>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: FFF5ED;" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="17.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws" wrappingWidth="300.0">
+            <Text layoutX="92.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaPaws" wrappingWidth="300.0">
                <font>
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Text>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="50.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="17.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:img/dog_logo.png" />
                </image>
