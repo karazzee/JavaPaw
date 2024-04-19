@@ -1,6 +1,6 @@
 package application;
 
-public class DogProfile implements Profile {
+public class DogProfile extends Dog implements Profile {
     private int profileId;
     private String name;
     private String imageURL;
@@ -9,15 +9,19 @@ public class DogProfile implements Profile {
     private int ownerId;
     private String ownerName;
 
-
-    public DogProfile(int profileId,String ownerName, String imageURL, int age, String breed, int ownerId, String ownerName1) {
+    
+    public DogProfile() {
+    	
+    }
+    
+    public DogProfile(int profileId,String name, String imageURL, int age, String breed, int ownerId, String ownerName) {
         this.profileId = profileId;
         this.name = name;
         this.imageURL = imageURL;
         this.age = age;
         this.breed = breed;  
         this.ownerId = ownerId;
-        this.ownerName = ownerName1;
+        this.ownerName = ownerName;
     }    
     @Override
     public String getName() {
@@ -59,5 +63,22 @@ public class DogProfile implements Profile {
     public void setBreed(String breed) {
         this.breed = breed;
     }
+    
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
+    }
+
 
 }
