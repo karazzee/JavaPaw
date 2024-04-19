@@ -10,8 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class UserProfile implements Profile {
-	private int profileId;
-	private String name;
+	public int profileId;
+	public String name;
 	public String email;
 	public String phone;
 	public String location;
