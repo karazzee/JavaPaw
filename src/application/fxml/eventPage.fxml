@@ -33,9 +33,9 @@
             </AnchorPane>
             <ButtonBar layoutX="714.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
                <buttons>
-                  <Button fx:id="homeButton" layoutX="65.0" layoutY="18.0" mnemonicParsing="false" text="Home" onAction="#handleHomePage" />
-                  <Button fx:id="MyEventButton" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="My Events" onAction="#handleRsvp" />
-                  <Button fx:id="myProfileButton" layoutX="200.0" layoutY="18.0" mnemonicParsing="false" text="Profile" onAction="#handleProfile" />
+                  <Button fx:id="homeButton" layoutX="65.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleHomePage" text="Home" />
+                  <Button fx:id="MyEventButton" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleMyEvent" text="My Events" />
+                  <Button fx:id="myProfileButton" layoutX="200.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleProfile" text="Profile" />
                </buttons>
             </ButtonBar>
          </children>
@@ -59,11 +59,11 @@
                   <Image url="file:img/four_dogs_tangle.jpg" />
                </image>
             </ImageView>
-			<TextArea layoutX="540.0" layoutY="-113.0" prefHeight="319.0" prefWidth="481.0" text="&#10;&#10;Date: Sunday, July 16, 2024&#10;&#10;Time: 8:00 AM - 12:00 PM&#10;&#10;Location: Redwood Regional Park, Oakland, CA&#10;&#10;participated Num: 15 people&#10;&#10;Description: Join other dog lovers for a guided hike through beautiful Redwood forests. Don’t forget your leash and hiking boots!" wrapText="true">               <font>
+			<TextArea layoutX="540.0" layoutY="-113.0" prefHeight="319.0" prefWidth="481.0" text="&#10;&#10;Date: Sunday, July 16, 2024&#10;&#10;Time: 8:00 AM - 12:00 PM&#10;&#10;Location: Redwood Regional Park, Oakland, CA&#10;&#10;Participated Number: 15 people &#10;&#10;Description: Join other dog lovers for a guided hike through beautiful Redwood forests. Don’t forget your leash and hiking boots!" wrapText="true">               <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </TextArea>
-            <Button fx:id="rsvpButton" layoutX="498.0" layoutY="236.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" onAction="#handleRsvp" text="RSVP">
+            <Button fx:id="rsvpButton" layoutX="498.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleRsvp" prefHeight="21.0" prefWidth="83.0" text="RSVP">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -78,6 +78,7 @@
                   <Font name="Segoe UI Black" size="21.0" />
                </font>
             </Text>
+            <Button fx:id="DogProfileButton" onAction="#handleDogProfile" layoutX="405.0" layoutY="-166.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="117.0" style="-fx-border-color: CCFFFF;" text="Dog's profile &gt;&gt;" textFill="#1511bf" />
          </children>
       </AnchorPane>
    </bottom>
