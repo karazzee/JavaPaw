@@ -1,9 +1,9 @@
 package application;
-import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.text.ParseException;
@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Iterator;
 import java.lang.reflect.Field;
-import java.time.LocalTime;
 
 public class Event {
 	public int eventId; 
@@ -23,9 +22,10 @@ public class Event {
 	public String eventDetail;
 	public String eventLocation;
 	public String eventPicUrl; 
-	public LocalDate date;	
-	public LocalTime timeStart;
-	public LocalTime timeEnd;
+	public Date date;
+	public Time time;
+	public Time timeStart;
+	public Time timeEnd;
 	public String place;
 	public int sponsorId;
 	public String sponsorName;
@@ -45,14 +45,17 @@ public class Event {
  
 
     // Constructor
-    public Event(String title, String location, LocalDate date, LocalTime time, LocalTime timeEnd) {
+    public Event(String title, String location, Date date, Time timeStart,Time timeEnd) {
     	this.eventTitle = title;
     	this.eventLocation = location;
         this.date = date;
-        this.timeStart = time;
+        this.timeStart = timeStart;
         this.timeEnd = timeEnd;
     }
-    // Getter method for event title
+    public Event() {
+		// TODO Auto-generated constructor stub
+	}
+	// Getter method for event title
     public String getTitle() {
         return this.eventTitle;
     }
@@ -64,19 +67,84 @@ public class Event {
     }
 
     // Getter method for date
-    public LocalDate getDate() {   	
+    public Date getDate() {   	
         return this.date;
     }
     
     // Getter method for time
-    public LocalTime getTime() {
-    	timeStart = LocalTime.now();
-        return timeStart;
+    public Time getTime() {
+        return this.timeStart;
     }
 
-    
-    
-    public static Event getEvent(String title, String location, LocalDate date, LocalTime timeStart,LocalTime timeEnd) {
+   
+    public static void main(String[] args) throws ParseException, ClassNotFoundException, SQLException {
+        
+    	Event event = new Event();
+    	Event eventFilter = new Event();
+    	List<Event> eventList = new ArrayList<>();
+
+    	UserProfile profile = new UserProfile();
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	event.date = dateFormat.parse("2024-03-15 12:30:00"); 
+    	// SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMM-dd-YYYY HH:mm"); dateFormat.format(now)
+    	event.eventId = 4;
+    	event.eventTitle = "kara's happy time @moutain view!";
+    	event.eventDetail = "On March 20th, Mountain View will host an enchanting gathering where our four-legged friends come together for a special doggy date. Set against the scenic backdrop of the city's parks and green spaces, this event promises a day of tail-wagging excitement and furry camaraderie. From playful pups to wise old souls, dogs of all ages and breeds will converge to socialize, sniff, and strut their stuff. As their human companions mingle, dogs will romp and frolic, exchanging playful barks and friendly sniffs. Attendees can look forward to a variety of activities, including dog-friendly games, agility courses, and perhaps even a doggy fashion show. Throughout the event, local shelters and rescue organizations will be on hand, showcasing adoptable dogs in search of loving forever homes. It's a chance for dog lovers to connect, share stories, and celebrate the unconditional love and joy that our canine companions bring into our lives. So mark your calendars, grab your leashes, and join us for a day filled with laughter, tail wags, and unforgettable moments in the heart of Mountain View.\r\n";
+		event.eventPicUrl = "";
+		event.timeStart = Time.valueOf("11:30:00");
+		event.timeEnd = Time.valueOf("14:30:00");
+		event.place = "Mountain View Park";
+		event.sponsorId = 1; //当user是发起人则是sponsor，如果是参与者则为partIdList
+		event.sponsorName = "kara2";
+		event.sponsorPetId = 1;
+		event.sponsorPetName = "Wangcai2";
+		event.partNum = 4;
+		event.partIdList ="2,3,5,10";
+		event.partNameList = "stein,yuga,andy,laohai";
+		event.partStatusList = " ";
+		event.likeNum = 200;
+		event.favoriteNum = 10;
+		event.unLikeNum = 2;
+		event.createDate = dateFormat.parse("2024-03-10 12:30:00"); 
+		event.upateDate = dateFormat.parse("2024-03-12 18:30:00"); 
+		event.status = "Active";
+		
+        Connection connection = null;
+        try {
+        	
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/petmeet?useSSL=false&serverTimezone=UTC";
+            String username = "root";
+            String password = "Stein@123";
+            connection = DriverManager.getConnection(url, username, password);
+
+            //updateEvent(connection, event);
+            //getEvent(connection,event);
+            //cancelEvent(connection,event);
+            //partEvent(connection,event,profile);
+            //getEvent(connection,event);
+            //removeFromPartList
+            eventList = getEventList(connection,eventFilter);
+            
+            
+
+
+ 
+            System.out.print("SQLexe OK");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    	
+    	
+    }
+  
+    public static Event getEvent(String title, String location, Date date, Time timeStart,Time timeEnd) {
         return new Event(title, location, date, timeStart, timeEnd);
     }
    
@@ -107,7 +175,7 @@ public class Event {
         }
         return hashMap;
     } 
-    public static String[] removePartList(Map<Integer,String> hashMap) {
+    public static String[] removeFromPartList(Map<Integer,String> hashMap) {
     	String[] strArray = {};
         if (hashMap.containsKey(10)) {
             System.out.println( " ID is in the map.");
@@ -116,10 +184,11 @@ public class Event {
     } 
 
     
-	public static void partEvent(Connection connection,Event event,Profile profile) {
+	public static void partEvent(Connection connection,Event event,Profile profile) throws ClassNotFoundException {
         PreparedStatement selectStatement = null;
         PreparedStatement updateStatement = null;
         try {
+            
         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         	
             String selectSql = " SELECT * FROM event WHERE eventid = ? ";
@@ -156,7 +225,7 @@ public class Event {
         
 	}
 	
-	public static void cancelPartEvent(Connection connection,Event event) {
+	public static void cancelPartEvent(Connection connection,Event event,UserProfile profile) {
         PreparedStatement selectStatement = null;
         PreparedStatement updateStatement = null;
         try {
@@ -179,8 +248,8 @@ public class Event {
             			+ "where eventId = ?";
                 updateStatement = connection.prepareStatement(updateSql);
                 updateStatement.setString(1, Integer.toString(event.partNum-1));
-                updateStatement.setString(2, event.partIdList+",8");
-                updateStatement.setString(3, event.partNameList+",QQ");
+                updateStatement.setString(2, event.partIdList+","+profile.profileId);
+                updateStatement.setString(3, event.partNameList+","+profile.name);
                 updateStatement.setString(4, Integer.toString(event.eventId));
 
                 
@@ -193,11 +262,20 @@ public class Event {
 	}
     
     //update and insert 
-	public static void updateEvent(Connection connection,Event event) {
+	public static void updateEvent(Connection connectionIn,Event event,UserProfile profile) throws ClassNotFoundException {
         PreparedStatement selectStatement = null;
         PreparedStatement insertStatement = null;
         PreparedStatement updateStatement = null;
+        
+        Connection connection = null;
         try {
+        	
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/petmeet?useSSL=false&serverTimezone=UTC";
+            String username = "root";
+            String password = "Stein@123";
+            connection = DriverManager.getConnection(url, username, password);
+
         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         	
             String selectSql = " SELECT * FROM event WHERE eventid = ? ";
@@ -213,13 +291,13 @@ public class Event {
                 		+" eventtitle = ?, eventdetail = ?, eventpicurl = ?, date = ?, timestart = ?, "
             			+ "timeend = ?, place = ?, sponsorid = ?, sponsorname = ?,sponsorpetid = ?, "
             			+ "sponsorpetname = ?, partnum = ?, partidlist = ?, partnamelist = ?, partstatuslist = ?, "
-            			+ "likenum = ?, unlikenum = ?, favoritenum = ?, createdate = ?,upatedate = ?, status = ?"
-            			+ "where eventId = ?";
+            			+ "likenum = ?, unlikenum = ?, favoritenum = ?, createdate = ?,upatedate = ?, status = ? "
+            			+ "where eventId = ? ";
                 updateStatement = connection.prepareStatement(updateSql);
                 updateStatement.setString(1, event.eventTitle);
                 updateStatement.setString(2, event.eventDetail);
                 updateStatement.setString(3, "");
-                updateStatement.setString(4, "2024-03-10 12:36:00");
+                updateStatement.setString(4, dateFormat.format(event.date));
                 updateStatement.setString(5, String.valueOf(event.timeStart));
                 updateStatement.setString(6, String.valueOf(event.timeEnd));
                 updateStatement.setString(7, event.place);
@@ -234,8 +312,8 @@ public class Event {
                 updateStatement.setString(16, Integer.toString(event.likeNum));
                 updateStatement.setString(17, Integer.toString(event.favoriteNum));
                 updateStatement.setString(18, Integer.toString(event.unLikeNum));
-                updateStatement.setString(19, dateFormat.format(event.createDate));
-                updateStatement.setString(20, dateFormat.format(event.upateDate));
+                updateStatement.setString(19, dateFormat.format(event.date)); //createdate 
+                updateStatement.setString(20, dateFormat.format(event.date)); //upatedate
                 updateStatement.setString(21, event.status);
                 updateStatement.setString(22, Integer.toString(event.eventId));
 
@@ -252,7 +330,7 @@ public class Event {
                 insertStatement.setString(1, event.eventTitle);
                 insertStatement.setString(2, event.eventDetail);
                 insertStatement.setString(3, "");
-                insertStatement.setString(4, "2024-03-10 12:36:00");
+                insertStatement.setString(4, dateFormat.format(event.date));
                 insertStatement.setString(5, String.valueOf(event.timeStart));
                 insertStatement.setString(6, String.valueOf(event.timeEnd));
                 insertStatement.setString(7, event.place);
@@ -267,16 +345,265 @@ public class Event {
                 insertStatement.setString(16, Integer.toString(event.likeNum));
                 insertStatement.setString(17, Integer.toString(event.favoriteNum));
                 insertStatement.setString(18, Integer.toString(event.unLikeNum));
-                insertStatement.setString(19, dateFormat.format(event.createDate));
-                insertStatement.setString(20, dateFormat.format(event.upateDate));
+                insertStatement.setString(19, dateFormat.format(event.date)); //createdate
+                insertStatement.setString(20, dateFormat.format(event.date)); //upatedate
                 insertStatement.setString(21, event.status);
-                insertStatement.setString(22, Integer.toString(event.eventId));
         		
                 insertStatement.executeUpdate();
             }
             System.out.println("SQL exe OK");
         } catch (SQLException e) {
             e.printStackTrace();
-        } 
+        } finally {
+            try {
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+		
+	} 
+	
+	public static void cancelEvent(Connection connection,Event event)  {
+        PreparedStatement selectStatement = null;
+        PreparedStatement cancelStatement = null;
+        try {
+            String selectSql = "SELECT * FROM event WHERE eventid = ?";
+            selectStatement = connection.prepareStatement(selectSql);
+            selectStatement.setString(1, String.valueOf(event.eventId));
+
+            ResultSet resultSet = selectStatement.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("SQLexe UPDATE");
+
+                String cancelSql = "update  event  set status = 'Cancel' "
+            			+ "where eventId = ?";
+                cancelStatement = connection.prepareStatement(cancelSql);
+            	
+            }
+        	
+        System.out.println("cancel Event  OK");
+        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } 
+	} 
+	
+	public void setEvent(Event event) {
+		this.eventId = event.eventId;
+		this.eventTitle = event.eventTitle;
+		this.eventDetail = event.eventDetail;
+		this.eventPicUrl = event.eventPicUrl;
+		this.date = event.date;
+		this.timeStart = event.timeStart;
+		this.timeEnd = event.timeEnd;
+		this.place = event.place;
+		this.sponsorId = event.sponsorId;
+		this.sponsorName = event.sponsorName;
+		this.sponsorPetId = event.sponsorPetId;
+		this.sponsorPetName = event.sponsorPetName;
+		this.partNum = event.partNum;
+		this.partIdList = event.partIdList;
+		this.partNameList = event.partNameList;
+		this.partStatusList = event.partStatusList;
+		this.likeNum = event.likeNum;
+		this.favoriteNum = event.favoriteNum;
+		this.unLikeNum = event.unLikeNum;
+		this.createDate = event.createDate;
+		this.upateDate = event.upateDate;
+		this.status = event.status;
+	} 
+	public PreparedStatement setEventSql(Event event) {
+		PreparedStatement Statement = null;
+		this.eventId = event.eventId;
+		this.eventTitle = event.eventTitle;
+		this.eventDetail = event.eventDetail;
+		this.eventPicUrl = event.eventPicUrl;
+		this.date = event.date;
+		this.timeStart = event.timeStart;
+		this.timeEnd = event.timeEnd;
+		this.place = event.place;
+		this.sponsorId = event.sponsorId;
+		this.sponsorName = event.sponsorName;
+		this.sponsorPetId = event.sponsorPetId;
+		this.sponsorPetName = event.sponsorPetName;
+		this.partNum = event.partNum;
+		this.partIdList = event.partIdList;
+		this.partNameList = event.partNameList;
+		this.partStatusList = event.partStatusList;
+		this.likeNum = event.likeNum;
+		this.favoriteNum = event.favoriteNum;
+		this.unLikeNum = event.unLikeNum;
+		this.createDate = event.createDate;
+		this.upateDate = event.upateDate;
+		this.status = event.status;
+		
+		return Statement;
+	} 
+	
+	public static void getEvent(Connection connection,Event event) throws IllegalArgumentException {
+        PreparedStatement selectStatement = null;
+        try {
+            
+            String selectSql = "SELECT * FROM event WHERE eventid = ?";
+            selectStatement = connection.prepareStatement(selectSql);
+            selectStatement.setString(1, "4");
+
+            ResultSet resultSet = selectStatement.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("ID: " + resultSet.getInt("eventid"));
+                
+                Field[] fields = event.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    field.setAccessible(true); // 设置可访问私有字段
+                    System.out.println(field.getName() + ": " + field.get(event));
+                }
+
+                
+            } else {
+                System.out.println(" 0 record found !");
+            }
+            System.out.println("SQLquery OK");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 	}
+    	public static List<Event> getEventList(Connection connectionIn,Event eventFilter) throws IllegalArgumentException, ClassNotFoundException {
+            PreparedStatement selectStatement = null;
+        	List<Event> eventList = new ArrayList<>();
+        	
+        	
+            Connection connection = null;
+            try {
+            	
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String url = "jdbc:mysql://localhost:3306/petmeet?useSSL=false&serverTimezone=UTC";
+                String username = "root";
+                String password = "Stein@123";
+                connection = DriverManager.getConnection(url, username, password);
+                
+                System.out.println("");
+                System.out.println("getEventList");
+                eventFilter.place = "san";
+
+            	StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM event WHERE status <> ? ");
+                if (eventFilter.place != null && !eventFilter.place.isEmpty()) {
+                    sqlBuilder.append(" AND place LIKE ?");
+                }
+                selectStatement = connection.prepareStatement(sqlBuilder.toString());
+                int parameterIndex = 1;
+            	selectStatement.setString(parameterIndex++, "Cancel");
+
+                if (eventFilter.place != null && !eventFilter.place.isEmpty()) {
+                	selectStatement.setString(parameterIndex++, "%" + eventFilter.place + "%");
+                }
+
+                ResultSet resultSet = selectStatement.executeQuery();
+                
+                boolean hasRecords = false; 
+                
+                //resultSetMapList 
+                List<Map<String, Object>> resultMapList = new ArrayList<>();
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int colCount = resultSet.getMetaData().getColumnCount();
+
+                
+                while (resultSet.next()) {
+                	Event event = new Event();
+                    System.out.println("ID: " + resultSet.getInt("eventid"));
+                    
+                    
+            		event.eventId = resultSet.getInt("eventid");
+            		event.eventTitle = resultSet.getString("eventTitle");
+            		event.eventDetail = resultSet.getString("eventDetail");
+            		event.eventPicUrl = resultSet.getString("eventPicUrl");
+            		event.date = resultSet.getDate("date");
+            		event.timeStart = resultSet.getTime("timeStart");
+            		event.timeEnd = resultSet.getTime("timeEnd");
+            		event.place = resultSet.getString("place");
+            		event.sponsorId = resultSet.getInt("sponsorId");
+            		event.sponsorName = resultSet.getString("sponsorName");
+            		event.sponsorPetId = resultSet.getInt("sponsorPetId");
+            		event.sponsorPetName = resultSet.getString("sponsorPetName");
+            		event.partNum = resultSet.getInt("partNum");
+            		event.partIdList = resultSet.getString("partIdList");
+            		event.partNameList = resultSet.getString("partNameList");
+            		event.partStatusList = resultSet.getString("partStatusList");
+            		event.likeNum = resultSet.getInt("likeNum");
+            		event.favoriteNum = resultSet.getInt("favoriteNum");
+            		event.unLikeNum = resultSet.getInt("unLikeNum");
+            		event.createDate = resultSet.getDate("createDate");
+            		event.upateDate = resultSet.getDate("upateDate");
+            		event.status = resultSet.getString("status");
+            		
+            		eventList.add(event);
+                	System.out.println("  ");
+                	hasRecords = true; // 设置标记为有记录
+            		
+                    Field[] fields = event.getClass().getDeclaredFields();
+                    for (Field field : fields) {
+                        field.setAccessible(true); // 设置可访问私有字段
+                        System.out.println(field.getName() + ": " + field.get(event));
+                    }
+                    
+                	System.out.println(" ");
+                	System.out.println(" resultSet -> HashMap ");
+                	System.out.println(" ");
+
+                	//Map 
+                    Map<String, Object> evnetMap = new HashMap<>();
+
+                    for (int i = 1; i <= colCount; i++) {
+                        String colName = metaData.getColumnName(i);
+                        Object colValue = resultSet.getObject(i); // get by index
+                        evnetMap.put(colName, colValue);
+                    }
+
+                    resultMapList.add(evnetMap);
+                    //iterator
+                    Iterator<Map<String, Object>> iterator = resultMapList.iterator();
+                    while (iterator.hasNext()) {
+                    	System.out.println(" ");
+                    	System.out.println(" ");
+
+                        Map<String, Object> rowEvent = iterator.next();
+                        for (Map.Entry<String, Object> entry : rowEvent.entrySet()) {
+                            System.out.println(entry.getKey() + ": " + entry.getValue());
+                        }
+                    }
+                    
+                } 
+                
+            	System.out.println(" ");
+            	System.out.println(" resultSet -> HashMap end");
+            	System.out.println(" ");
+
+                
+                if (!hasRecords) {
+                    System.out.println("0 record found ! ");
+                }
+                
+                System.out.print("SQLquery OK");
+                                
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    if (connection != null) connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            return eventList;
+
+	} 
+
+
+
 }
