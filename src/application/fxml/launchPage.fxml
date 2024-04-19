@@ -62,13 +62,13 @@
             </Text>            
             <TextField fx:id="usernameField" layoutX="337.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="admin" />
             <TextField fx:id="emailField" layoutX="337.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="stein@gmail.com" />
-            <PasswordField fx:id="passwordField" layoutX="337.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Enter user password" />
-            <PasswordField fx:id="confirmPasswordField" layoutX="337.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Enter user password agian" />
+            <PasswordField fx:id="eventDateField" layoutX="337.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="2024-03-15" />
+            <PasswordField fx:id="eventTimeField" layoutX="337.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="13:00 PM ~ 18:00 PM" />
             <TextField fx:id="locationField" layoutX="337.0" layoutY="305.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="los angels" />
             <TextField fx:id="petNameField" layoutX="337.0" layoutY="365.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="wangcai" />
             <TextField fx:id="petBreedField" layoutX="337.0" layoutY="420.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="huskey" />
             <TextField fx:id="petAgeField" layoutX="337.0" layoutY="475.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="2 years" />
-            <Button fx:id="saveButton"  onAction="#handleRsvp" layoutX="400.0" layoutY="650.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"  prefHeight="30.0" prefWidth="100.0" text="Save" textFill="#1f389e" />
+            <Button fx:id="saveButton"  onAction="#handleSaveLaunchEvent" layoutX="400.0" layoutY="650.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"  prefHeight="30.0" prefWidth="100.0" text="Save" textFill="#1f389e" />
             <Button fx:id="cancelButton" onAction="#handleHomePage" layoutX="530.0" layoutY="650.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"  prefHeight="30.0" prefWidth="100.0" text="cancel" textFill="#1f389e" />
          </children>
       </AnchorPane>
