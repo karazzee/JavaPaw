@@ -25,5 +25,7 @@ IDE：Eclipse Version: 2023-12
 The main process of project user interaction is as follows: 
 User registration >> User login >> Browse the event main page >> Browse the event details page >> Initiate an event page, or participate in activities initiated by others >> Participate in the event on time or cancel the event.
 
+JavaPaws Github:
+https://github.com/karazzee/JavaPaw
 
 
